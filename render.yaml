@@ -1,0 +1,34 @@
+services:
+- type: web
+  name: n8n-server
+  env: node
+  plan: starter
+  buildCommand: npm install && npm run build
+  startCommand: npm run start
+  envVars:
+  - key: DB_TYPE
+    value: postgresdb
+  - key: DB_POSTGRESDB_HOST
+    value: dpg-d3n52hali9vc738pnjtg-a.oregon-postgres.render.com
+  - key: DB_POSTGRESDB_PORT
+    value: '5432'
+  - key: DB_POSTGRESDB_DATABASE
+    value: bacoprod
+  - key: DB_POSTGRESDB_USER
+    value: n8n_user
+  - key: DB_POSTGRESDB_PASSWORD
+    value: Maya24@@
+  - key: DB_POSTGRESDB_SCHEMA
+    value: n8n
+  - key: N8N_BASIC_AUTH_ACTIVE
+    value: 'true'
+  - key: N8N_BASIC_AUTH_USER
+    value: admin
+  - key: N8N_BASIC_AUTH_PASSWORD
+    value: admin123
+  - key: WEBHOOK_TUNNEL_URL
+    value: https://n8n-server.onrender.com
+  - key: N8N_HOST
+    value: 0.0.0.0
+  - key: N8N_PORT
+    value: '10000'
